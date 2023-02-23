@@ -1,5 +1,5 @@
-import 'package:e_commerce_app/pic.dart';
-import 'package:e_commerce_app/products.dart';
+import 'package:e_commerce_app/ClassProduct.dart';
+import 'package:e_commerce_app/ProductPicDetails.dart';
 import 'package:flutter/material.dart';
 
 void main() {

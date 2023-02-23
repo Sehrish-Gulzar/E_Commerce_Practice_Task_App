@@ -1,4 +1,4 @@
-import 'package:e_commerce_app/pic.dart';
+import 'package:e_commerce_app/ProductPicDetails.dart';
 import 'package:flutter/material.dart';
 
 class Cart extends StatelessWidget {

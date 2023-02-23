@@ -1,3 +1,4 @@
+import 'package:e_commerce_app/Login.dart';
 import 'package:e_commerce_app/cartDetails.dart';
 import 'package:e_commerce_app/customerData.dart';
 import 'package:e_commerce_app/eCommerce.dart';
@@ -26,8 +27,6 @@ class MyApp extends StatelessWidget {
 }
 
 class Home extends StatefulWidget {
-  // const Home({Key? key}) : super(key: key);
-
   @override
   State<Home> createState() => _HomeState();
 }
@@ -119,6 +118,17 @@ class _HomeState extends State<Home> {
                         fontWeight: FontWeight.bold,
                         fontSize: 20),
                   ),
+                ],
+              ),
+            ),
+
+            ListTile(
+              leading: Login.myuser[0].genderPic,
+              title: Column(
+                mainAxisAlignment: MainAxisAlignment.start,
+                children: [
+                  Text("Name: ${Login.myuser[0].name}"),
+                  Text("Email: ${Login.myuser[0].email}"),
                 ],
               ),
             ),

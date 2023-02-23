@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 
-import 'cartDetails.dart';
+import 'ClassProduct.dart';
 import 'gridviewDemo.dart';
-import 'products.dart';
 
 void main() {
   runApp(const MyApp());
@@ -43,14 +42,6 @@ class _HomeState extends State<Home> {
               child: Text(
             "E Commerce App",
           )),
-          actions: [
-            IconButton(
-                onPressed: () {
-                  Navigator.push(
-                      context, MaterialPageRoute(builder: (context) => Cart()));
-                },
-                icon: Icon(Icons.shopping_cart))
-          ],
           bottom: TabBar(
             unselectedLabelColor: Colors.grey,
             indicatorSize: TabBarIndicatorSize.tab,
