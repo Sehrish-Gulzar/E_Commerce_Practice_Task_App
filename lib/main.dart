@@ -1,3 +1,4 @@
+import 'package:e_commerce_app/EditProfile.dart';
 import 'package:e_commerce_app/Login.dart';
 import 'package:e_commerce_app/cartDetails.dart';
 import 'package:e_commerce_app/customerData.dart';
@@ -52,6 +53,16 @@ class _HomeState extends State<Home> {
         actions: [
           IconButton(
               onPressed: () {
+                setState(
+                  () {
+                    Navigator.push(context,
+                        MaterialPageRoute(builder: (context) => EditProfile()));
+                  },
+                );
+              },
+              icon: Icon(Icons.edit)),
+          IconButton(
+              onPressed: () {
                 Navigator.push(
                     context, MaterialPageRoute(builder: (context) => Cart()));
               },
@@ -96,17 +107,7 @@ class _HomeState extends State<Home> {
               child: Column(
                 children: [
                   Center(
-                    child: Container(
-                      child: Image(
-                        image: AssetImage("assets/images/galaxy.jpg"),
-                        fit: BoxFit.fill,
-                      ),
-                      decoration: BoxDecoration(
-                        shape: BoxShape.circle,
-                      ),
-                      height: 100,
-                      width: 100,
-                    ),
+                    child: Login.myuser[0].genderPic,
                   ),
                   SizedBox(
                     height: 10,
@@ -123,7 +124,6 @@ class _HomeState extends State<Home> {
             ),
 
             ListTile(
-              leading: Login.myuser[0].genderPic,
               title: Column(
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: [

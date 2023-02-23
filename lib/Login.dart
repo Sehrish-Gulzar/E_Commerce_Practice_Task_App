@@ -53,6 +53,7 @@ class _LoginState extends State<Login> {
             child: Padding(
               padding: const EdgeInsets.all(10),
               child: TextField(
+                obscureText: isHidden,
                 controller: passController,
                 decoration: InputDecoration(
                   border: OutlineInputBorder(),
@@ -94,7 +95,9 @@ class _LoginState extends State<Login> {
                         name: SignUp.mydata[i].name,
                         gender: SignUp.groupValue1,
                         genderPic: SignUp.mydata[i].genderPic));
-                    Navigator.push(context,
+                    // Navigator.push(context,
+                    //     MaterialPageRoute(builder: (context) => Home()));
+                    Navigator.pushReplacement(context,
                         MaterialPageRoute(builder: (context) => Home()));
                   } else {
                     Text("Invalid email or pass");
@@ -107,7 +110,9 @@ class _LoginState extends State<Login> {
           ),
           ElevatedButton(
             onPressed: () {
-              Navigator.push(
+              // Navigator.push(
+              //     context, MaterialPageRoute(builder: (context) => SignUp()));
+              Navigator.pushReplacement(
                   context, MaterialPageRoute(builder: (context) => SignUp()));
             },
             child: Text("SignUp"),

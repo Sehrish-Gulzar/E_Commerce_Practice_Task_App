@@ -8,27 +8,33 @@ void main() {
 
 class SignUp extends StatefulWidget {
   static List<Data> mydata = [
-    Data(
-        num: "030134800",
-        pass: "123",
-        email: "lare@123",
-        name: "Laraib",
-        gender: "Female",
-        genderPic: SignUp.gender[1]),
-    Data(
-        num: "033232323",
-        pass: "123",
-        email: "sehrigul11@gmail.com",
-        name: "Sehrish",
-        gender: "Female",
-        genderPic: SignUp.gender[1])
+    // Data(
+    //     num: "030134800",
+    //     pass: "123",
+    //     email: "lare@123",
+    //     name: "Laraib",
+    //     gender: "Female",
+    //     genderPic: SignUp.gender[1]),
+    // Data(
+    //     num: "033232323",
+    //     pass: "123",
+    //     email: "sehrigul11@gmail.com",
+    //     name: "Sehrish",
+    //     gender: "Female",
+    //     genderPic: SignUp.gender[1])
   ];
   static List gender = [
-    CircleAvatar(
-      backgroundImage: AssetImage("assets/images/1.jpg"),
+    Container(
+      child: CircleAvatar(
+        backgroundImage: AssetImage("assets/images/1.jpg"),
+        radius: 50,
+      ),
     ),
-    CircleAvatar(
-      backgroundImage: AssetImage("assets/images/2.jpg"),
+    Container(
+      child: CircleAvatar(
+        backgroundImage: AssetImage("assets/images/2.jpg"),
+        radius: 50,
+      ),
     ),
   ];
   static String groupValue = "";
@@ -191,7 +197,9 @@ class _SignUpState extends State<SignUp> {
 
                 print(
                     "${SignUp.mydata[0].pass}\n${SignUp.mydata[0].email}\n${SignUp.mydata[0].num}\n${SignUp.mydata[0].name}\n${SignUp.mydata[0].gender}");
-                Navigator.push(
+                // Navigator.push(
+                //     context, MaterialPageRoute(builder: (context) => Login()));
+                Navigator.pushReplacement(
                     context, MaterialPageRoute(builder: (context) => Login()));
               });
             },
