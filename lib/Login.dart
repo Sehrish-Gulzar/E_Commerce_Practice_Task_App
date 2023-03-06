@@ -97,10 +97,15 @@ class _LoginState extends State<Login> {
                         genderPic: SignUp.mydata[i].genderPic));
                     // Navigator.push(context,
                     //     MaterialPageRoute(builder: (context) => Home()));
+
                     Navigator.pushReplacement(context,
                         MaterialPageRoute(builder: (context) => Home()));
-                  } else {
-                    Text("Invalid email or pass");
+                  }
+                  if (SignUp.mydata[i].email != email &&
+                      SignUp.mydata[i].pass != pass) {
+                    var snackBar =
+                        SnackBar(content: Text("Invalid password or email"));
+                    ScaffoldMessenger.of(context).showSnackBar(snackBar);
                   }
                 }
               });

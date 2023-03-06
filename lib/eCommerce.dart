@@ -126,9 +126,14 @@ class _ecommerceState extends State<ecommerce> {
                       onPressed: () {
                         // updateProducts();
                         setState(() {
-                          if (productname.text == "") {
-                            if (productdescription.text == "") {
-                              if (productprice.text == "") {}
+                          if (productname.text.isEmpty) {
+                            if (productdescription.text.isEmpty) {
+                              if (productprice.text.isEmpty) {
+                                var snackBar =
+                                    SnackBar(content: Text("Field is empty"));
+                                ScaffoldMessenger.of(context)
+                                    .showSnackBar(snackBar);
+                              }
                             }
                           } else {
                             listproducts[index].productName = productname.text;

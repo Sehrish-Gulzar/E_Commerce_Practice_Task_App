@@ -8,20 +8,20 @@ void main() {
 
 class SignUp extends StatefulWidget {
   static List<Data> mydata = [
-    // Data(
-    //     num: "030134800",
-    //     pass: "123",
-    //     email: "lare@123",
-    //     name: "Laraib",
-    //     gender: "Female",
-    //     genderPic: SignUp.gender[1]),
-    // Data(
-    //     num: "033232323",
-    //     pass: "123",
-    //     email: "sehrigul11@gmail.com",
-    //     name: "Sehrish",
-    //     gender: "Female",
-    //     genderPic: SignUp.gender[1])
+    Data(
+        num: "030134800",
+        pass: "123",
+        email: "lare123",
+        name: "Laraib",
+        gender: "Female",
+        genderPic: SignUp.gender[1]),
+    Data(
+        num: "03323000",
+        pass: "123",
+        email: "sehri123",
+        name: "Sehrish",
+        gender: "Female",
+        genderPic: SignUp.gender[1])
   ];
   static List gender = [
     Container(
@@ -88,6 +88,20 @@ class _SignUpState extends State<SignUp> {
                 ),
               )),
           Card(
+              margin: EdgeInsets.all(10),
+              elevation: 10,
+              child: Padding(
+                padding: const EdgeInsets.all(10),
+                child: TextField(
+                  controller: nameController,
+                  decoration: InputDecoration(
+                    border: OutlineInputBorder(),
+                    alignLabelWithHint: true,
+                    label: Text("Name"),
+                  ),
+                ),
+              )),
+          Card(
             margin: EdgeInsets.all(10),
             elevation: 10,
             child: Padding(
@@ -102,20 +116,6 @@ class _SignUpState extends State<SignUp> {
               ),
             ),
           ),
-          Card(
-              margin: EdgeInsets.all(10),
-              elevation: 10,
-              child: Padding(
-                padding: const EdgeInsets.all(10),
-                child: TextField(
-                  controller: nameController,
-                  decoration: InputDecoration(
-                    border: OutlineInputBorder(),
-                    alignLabelWithHint: true,
-                    label: Text("Name"),
-                  ),
-                ),
-              )),
           Card(
             margin: EdgeInsets.all(10),
             elevation: 10,
@@ -176,6 +176,14 @@ class _SignUpState extends State<SignUp> {
                 email = emailController.text;
                 pass = passController.text;
                 num = numController.text;
+                if (email.isEmpty ||
+                    name.isEmpty ||
+                    num.isEmpty ||
+                    pass.isEmpty ||
+                    SignUp.groupValue1.isEmpty) {
+                  var snackBar = SnackBar(content: Text("Field is empty"));
+                  ScaffoldMessenger.of(context).showSnackBar(snackBar);
+                }
                 if (SignUp.groupValue1 == "Male") {
                   SignUp.mydata.add(Data(
                       num: num,
@@ -184,6 +192,8 @@ class _SignUpState extends State<SignUp> {
                       name: name,
                       gender: SignUp.groupValue1,
                       genderPic: SignUp.gender[0]));
+                  Navigator.pushReplacement(context,
+                      MaterialPageRoute(builder: (context) => Login()));
                 }
                 if (SignUp.groupValue1 == "Female") {
                   SignUp.mydata.add(Data(
@@ -193,14 +203,14 @@ class _SignUpState extends State<SignUp> {
                       name: name,
                       gender: SignUp.groupValue1,
                       genderPic: SignUp.gender[1]));
+                  Navigator.pushReplacement(context,
+                      MaterialPageRoute(builder: (context) => Login()));
                 }
 
                 print(
                     "${SignUp.mydata[0].pass}\n${SignUp.mydata[0].email}\n${SignUp.mydata[0].num}\n${SignUp.mydata[0].name}\n${SignUp.mydata[0].gender}");
                 // Navigator.push(
                 //     context, MaterialPageRoute(builder: (context) => Login()));
-                Navigator.pushReplacement(
-                    context, MaterialPageRoute(builder: (context) => Login()));
               });
             },
             child: Text("SignUp"),
